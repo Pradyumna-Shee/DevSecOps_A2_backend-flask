@@ -116,6 +116,11 @@ def api_route():
 
     return jsonify({'message': '/API endpoint called !'}), 200
 
+# Vulnerability for ZAP
+@app.route('/search')
+def search():
+    query = request.args.get('q')
+    return f"Search results for: {query}"
 
 @app.route('/api/grade-submission', methods=['POST'])
 def grade_submission():
