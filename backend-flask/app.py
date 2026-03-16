@@ -9,10 +9,16 @@ from datetime import datetime, timedelta
 from werkzeug.utils import secure_filename
 from datetime import datetime
 
+# Vulnerability for SonarQube
 ADMIN_PASSWORD = "teacher1234"
 
 app = Flask(__name__)
 CORS(app)
+
+# Vulnerability for ZAP
+@app.route('/test')
+def test():
+    return "test"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///learning.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
