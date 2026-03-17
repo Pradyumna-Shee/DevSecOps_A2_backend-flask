@@ -16,9 +16,13 @@ app = Flask(__name__)
 CORS(app)
 
 # Vulnerability for ZAP
-@app.route('/test')
-def test():
-    return "test"
+@app.route('/search')
+def search():
+    # This takes user input from the URL 'q' parameter 
+    # and reflects it back to the page without sanitization.
+    query = request.args.get('q', '')
+    return f"<h1>Search results for: {query}</h1>"
+# ----------------------------------------
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///learning.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
