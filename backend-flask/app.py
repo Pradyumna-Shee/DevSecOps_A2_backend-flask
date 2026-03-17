@@ -124,7 +124,7 @@ def api_route():
 @app.route('/search')
 def search():
     query = request.args.get('q')
-    return f"Search results for: {query}"
+    return f"<h1>Search results for: {query}</h1>"
 
 @app.route('/api/grade-submission', methods=['POST'])
 def grade_submission():
